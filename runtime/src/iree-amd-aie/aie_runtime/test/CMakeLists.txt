@@ -105,10 +105,11 @@ iree_lit_test(
     "hostonly"
 )
 
-
-target_include_directories(
-  iree-amd-aie_aie_runtime_test_DeviceModelTestCppTest
-  PRIVATE "${IREE_MLIR_AIE_SOURCE_DIR}/include"
-)
+if(IREE_BUILD_TESTS)
+  target_include_directories(
+    iree-amd-aie_aie_runtime_test_DeviceModelTestCppTest
+    PRIVATE "${IREE_MLIR_AIE_SOURCE_DIR}/include"
+  )
+endif()
 
 add_subdirectory(cdo)
